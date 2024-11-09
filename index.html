@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO/app</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="to-do-container">
+        <header>
+            <h1>My To-Do List</h1>
+            <button id="mode-toggle" class="mode-toggle">
+                <i class="fas fa-sun"></i> <!-- Default icon for light mode -->
+            </button>
+        </header>
+        <form action="" class="task-form">
+            <input type="text" id="task-input" placeholder="Add a new task...." required>
+            <button class="button-82-pushable" role="button" type="submit">
+                <span class="button-82-shadow"></span>
+                <span class="button-82-edge"></span>
+                <span class="button-82-front text">Add Task</span>
+            </button>
+            <!-- Large Voice Input Button -->
+            <button id="voice-input" class="voice-button" role="button" type="button">
+                <i class="fas fa-microphone"></i> <!-- Voice input button -->
+            </button>
+        </form>
+
+        <!-- Filter Buttons -->
+        <div class="filters">
+            <button class="filter-button" data-filter="all">All</button>
+            <button class="filter-button" data-filter="active">Active</button>
+            <button class="filter-button" data-filter="completed">Completed</button>
+        </div>
+
+        <ul class="task-list" id="task-list">
+            <!-- Tasks will be dynamically added here -->
+        </ul>
+    </div>
+
+    <script src="app.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>

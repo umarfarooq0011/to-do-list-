@@ -1,0 +1,370 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #b1b9c1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.to-do-container {
+    background-color: #988ed9;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.to-do-container:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+form {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    flex-wrap: nowrap; /* Prevent wrapping to keep buttons in one line */
+}
+
+#task-input {
+    padding: 10px;
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    min-width: 0; /* Allow input to shrink properly */
+}
+
+/* Base Styles for Add Task Button */
+.button-82-pushable {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  flex-shrink: 0; /* Prevents button from shrinking */
+}
+
+.button-82-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+.button-82-edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(to left, hsl(340deg 100% 16%) 0%, hsl(340deg 100% 32%) 8%, hsl(340deg 100% 32%) 92%, hsl(340deg 100% 16%) 100%);
+}
+
+.button-82-front {
+  display: block;
+  position: relative;
+  padding: 0.6rem 1rem; /* Adjust padding for better responsiveness */
+  border-radius: 12px;
+  font-size: 0.9rem; /* Adjust font size */
+  color: white;
+  background: hsl(345deg 100% 47%);
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+  white-space: nowrap; /* Prevents button text from wrapping */
+}
+
+.button-82-pushable:hover {
+  filter: brightness(110%);
+  -webkit-filter: brightness(110%);
+}
+
+.button-82-pushable:hover .button-82-front {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.button-82-pushable:active .button-82-front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.button-82-pushable:hover .button-82-shadow {
+  transform: translateY(4px);
+  transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.button-82-pushable:active .button-82-shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.button-82-pushable:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Task List Styles */
+.task-list {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.task-item:hover {
+    background-color: #f9f9f9;
+}
+
+.task-item.completed {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+/* Input and button reset */
+.edit-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Large Voice Button Styles */
+.voice-button {
+    background: #073aa0; /* Microphone button background color */
+    color: white; /* Icon color */
+    border: none;
+    border-radius: 50%; /* Circular shape */
+    width: 50px; /* Width of the button */
+    height: 50px; /* Height of the button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.voice-button i {
+    font-size: 22px; /* Icon size */
+}
+
+.voice-button:hover {
+    background: #0a1bd6; /* Darker shade on hover */
+}
+
+.voice-button:active {
+    background: #7982d2; /* Even darker on click */
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #333;
+  color: #f1f1f1;
+}
+
+.dark-mode .to-do-container {
+  background-color: #444;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .task-item {
+  background-color: #555;
+  border-color: #666;
+}
+
+.dark-mode .task-item:hover {
+  background-color: #666;
+}
+
+.dark-mode button {
+  color: #f1f1f1;
+}
+
+.dark-mode input {
+  background-color: #555;
+  color: #f1f1f1;
+  border-color: #666;
+}
+
+/* Responsive Styles for Small Devices (320px and smaller) */
+@media (max-width: 320px) {
+    .to-do-container {
+        padding: 5px;
+        max-width: 90%;
+    }
+
+    header h1 {
+        font-size: 1.1rem;
+    }
+
+    .button-82-front {
+        font-size: 0.6rem;
+        padding: 0.3rem 0.6rem;
+    }
+
+    #task-input {
+        font-size: 0.65rem;
+        padding: 5px;
+    }
+
+    .voice-button {
+        width: 40px; /* Smaller size for tiny screens */
+        height: 40px;
+        margin-left: 5px;
+    }
+
+    .voice-button i {
+        font-size: 18px; /* Adjust icon size for small screens */
+    }
+}
+
+/* Responsive Styles for Small Devices (321px to 480px) */
+@media (max-width: 480px) {
+    .to-do-container {
+        padding: 15px;
+        max-width: 95%;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .button-82-front {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    #task-input {
+        font-size: 0.75rem;
+        padding: 8px;
+    }
+
+    .voice-button {
+        width: 45px;
+        height: 45px;
+    }
+
+    .voice-button i {
+        font-size: 20px;
+    }
+}
+
+/* Tablets (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .to-do-container {
+        max-width: 600px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    #task-input {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .button-82-front {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .voice-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .voice-button i {
+        font-size: 22px;
+    }
+}
+
+/* Laptops (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .to-do-container {
+        max-width: 700px;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Desktops (1025px and up) */
+@media (min-width: 1025px) {
+    .to-do-container {
+        max-width: 800px;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    #task-input {
+        font-size: 1.1rem;
+    }
+
+    .button-82-front {
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+    }
+
+    .voice-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .voice-button i {
+        font-size: 22px;
+    }
+}
